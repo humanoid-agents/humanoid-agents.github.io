@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVPR Workshop 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.8;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3, p {
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0066cc;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #004999;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0066cc, #004999);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 4px solid #003366;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    /* Section Styles */
+    section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Schedule Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .timeline-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      border-left: 4px solid #0066cc;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: #0066cc;
+      border-radius: 50%;
+      position: absolute;
+      left: -6px;
+    }
+
+    .timeline-item .time {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #0066cc;
+      width: 120px;
+      flex-shrink: 0;
+    }
+
+    .timeline-item .desc {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* Call for Papers */
+    .call-for-papers p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .call-for-papers a {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #0066cc;
+      color: white;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .call-for-papers a:hover {
+      background: #004999;
+    }
+
+    /* Speakers and Organizers */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+      transition: box-shadow 0.3s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+      color: #666;
+      background: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CVPR Workshop 2025</h1>
+    <p>Advancing the Frontiers of Computer Vision</p>
+  </header>
+
+  <div class="container">
+    <!-- Schedule Section -->
+    <section id="schedule">
+      <h2>Schedule</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time">09:00 AM</div>
+          <div class="desc">Opening Remarks</div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">10:00 AM</div>
+          <div class="desc">Keynote Speech by Dr. Jane Doe</div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">11:30 AM</div>
+          <div class="desc">Paper Session I</div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">02:00 PM</div>
+          <div class="desc">Panel Discussion</div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">04:00 PM</div>
+          <div class="desc">Closing Remarks</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call for Papers Section -->
+    <section id="call-for-papers" class="call-for-papers">
+      <h2>Call for Papers</h2>
+      <p>We invite researchers and practitioners to submit their original work on cutting-edge topics in computer vision and pattern recognition.</p>
+      <p>Submission Deadline: <strong>April 15, 2025</strong></p>
+      <a href="#submit">Submit Your Paper</a>
+    </section>
+
+    <!-- Speakers Section -->
+    <section id="speakers">
+      <h2>Speakers</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://via.placeholder.com/100" alt="Speaker">
+          <h3>Dr. Jane Doe</h3>
+          <p>Keynote Speaker</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/100" alt="Speaker">
+          <h3>Dr. John Smith</h3>
+          <p>Panelist</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/100" alt="Speaker">
+          <h3>Dr. Alice Johnson</h3>
+          <p>Paper Presenter</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Organizers Section -->
+    <section id="organizers">
+      <h2>Organizers</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://via.placeholder.com/100" alt="Organizer">
+          <h3>Prof. Emily White</h3>
+          <p>Workshop Chair</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/100" alt="Organizer">
+          <h3>Dr. Mark Brown</h3>
+          <p>Program Committee</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/100" alt="Organizer">
+          <h3>Dr. Sarah Green</h3>
+          <p>Local Organizer</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 CVPR Workshop. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
