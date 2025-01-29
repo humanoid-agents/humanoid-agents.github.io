@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The 1st Workshop on Humanoid Agents @ CVPR 2025</title>
+  <title>Workshop on Humanoid Agents - CVPR 2025</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -265,7 +265,8 @@
     }
 
     .organizer-grid {
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
     }
 
     /* 修改section的padding在移动端的表现 */
@@ -291,7 +292,7 @@
     /* Speaker Grid 和 Organizer Grid 的基础样式 */
     .speaker-grid, .organizer-grid {
       display: grid;
-      gap: 2rem;
+      gap: 2rem 2rem;  /* 将列间距设为0 */
       justify-content: center;
       width: 100%;
       margin: 0 auto;
@@ -300,17 +301,17 @@
     /* Speaker Grid 在大屏幕时显示4个 */
     @media (min-width: 1200px) {
       .speaker-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 240px); /* 固定宽度 */
       }
       .organizer-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 240px); /* 固定宽度 */
       }
     }
 
     /* 中等屏幕都显示3个 */
     @media (min-width: 992px) and (max-width: 1199px) {
       .speaker-grid, .organizer-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 240px); /* 固定宽度 */
       }
     }
 
