@@ -5,7 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CVPR Workshop 2025</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+  /* 引入新字体 */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  /* 引入Lato字体 */
+  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+  header {
+    background: linear-gradient(135deg,#252566, #2b4793), url('path/to/your/image.jpg');
+    backdrop-filter: blur(8px);
+    color: #f0f0f0;
+    text-align: center;
+    padding: 3rem 0;
+    border-bottom: 4px solid #003366;
+  }
     /* Base Styles */
     * {
       margin: 0;
@@ -14,16 +28,19 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Lato', sans-serif;
       line-height: 1.8;
       background-color: #f8f9fa;
       color: #333;
       margin: 0;
       padding: 0;
+      font-size: 19px;
     }
 
-    h1, h2, h3, p {
+    h1, h2, h3, p, a, .desc {
+      font-family: 'Lato', sans-serif;
       margin-bottom: 1rem;
+      font-size: 1.1rem;
     }
 
     h1, h2, h3 {
@@ -48,31 +65,35 @@
     }
 
     /* Header */
-    header {
-      background: linear-gradient(135deg, #0066cc, #004999);
-      color: white;
-      text-align: center;
-      padding: 2rem 0;
-      border-bottom: 4px solid #003366;
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
 
-    header h1 {
-      font-size: 2.8rem;
+    header h2, header p {
+      font-size: 2.0rem;
+      font-weight: 400;
       margin-bottom: 0.5rem;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
     }
 
     header p {
       font-size: 1.2rem;
-      font-weight: 300;
     }
 
     /* Section Styles */
     section {
       margin-bottom: 3rem;
-      padding: 2rem;
+      padding-left: 5rem;
+      padding-right: 5rem;
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
       background: white;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: justify;
     }
 
     section h2 {
@@ -85,40 +106,25 @@
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 0.5rem;
     }
 
     .timeline-item {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: center;
-      border-left: 4px solid #0066cc;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .timeline-item::before {
-      content: '';
-      width: 12px;
-      height: 12px;
-      background: #0066cc;
-      border-radius: 50%;
-      position: absolute;
-      left: -6px;
+      align-items: baseline;
+      padding: 0.5rem 0;
     }
 
     .timeline-item .time {
       font-weight: 600;
-      font-size: 1rem;
-      color: #0066cc;
-      width: 120px;
-      flex-shrink: 0;
+      font-size: 1.1rem;
+      color: #2b4793;
+      margin-right: 10px;
     }
 
     .timeline-item .desc {
-      font-size: 1rem;
-      color: #555;
+      font-size: 1.1rem;
+      color: #333;
     }
 
     /* Call for Papers */
@@ -131,7 +137,7 @@
       margin-top: 1rem;
       display: inline-block;
       padding: 0.75rem 1.5rem;
-      background: #0066cc;
+      background: #2b4793;
       color: white;
       font-weight: 600;
       border-radius: 4px;
@@ -139,19 +145,29 @@
     }
 
     .call-for-papers a:hover {
-      background: #004999;
+      background: #252566;
     }
 
     /* Speakers and Organizers */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      justify-content: center;
+      width: 100%;
+      margin: 0 auto;
     }
 
     .card {
+      width: 100%;
+      max-width: 240px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
       text-align: center;
-      padding: 1.5rem;
       background: #f8f9fa;
       border-radius: 8px;
       transition: box-shadow 0.3s;
@@ -187,97 +203,332 @@
       color: #666;
       background: #f1f1f1;
     }
+
+    p {
+      font-size: 19px;
+    }
+
+    /* 特别指定类，确保没有遗漏 */
+    .time, .desc, .call-for-papers p, .timeline-item .desc {
+      font-size: 1.1rem;
+    }
+
+    /* 设置文本选择的背景颜色为淡黄色 */
+    /* ::selection {
+      background-color: #ffff99; /* 淡黄色背景 */
+      /* color: #333; 选中文本的颜色 */
+    /* } */
+
+    ul {
+      padding-left: 40px; /* 增加左侧的padding以缩进列表 */
+    }
+
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .image-caption {
+      flex: 1;
+      min-width: 280px;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .image-caption video {
+      width: 100%;
+      height: auto;
+      max-width: 320px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .caption {
+      color: gray; /* 设置说明文字的颜色为灰色 */
+      font-size: 0.9em; /* 设置说明文字的字体大小稍小 */
+    }
+
+    .speaker-link {
+      color: #000000; /* 黑色 */
+    }
+
+    .section-spacing {
+      margin-top: 25px; /* 在元素上方添加20px的外边距 */
+      margin-bottom: 25px; /* 在元素下方添加20px的外边距 */
+    }
+
+    /* 添加新的组织者卡片类 */
+    .organizer-card {
+      width: 240px;
+    }
+
+    .organizer-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    /* 修改section的padding在移动端的表现 */
+    @media (max-width: 768px) {
+      section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      header h2 {
+        font-size: 1.5rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+    }
+
+    /* Speaker Grid 和 Organizer Grid 的基础样式 */
+    .speaker-grid, .organizer-grid {
+      display: grid;
+      gap: 2rem;
+      justify-content: center;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Speaker Grid 在大屏幕时显示4个 */
+    @media (min-width: 1200px) {
+      .speaker-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .organizer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* 中等屏幕都显示3个 */
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .speaker-grid, .organizer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* 平板尺寸显示2个 */
+    @media (min-width: 576px) and (max-width: 991px) {
+      .speaker-grid, .organizer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* 手机尺寸显示1个 */
+    @media (max-width: 575px) {
+      .speaker-grid, .organizer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>CVPR Workshop 2025</h1>
-    <p>Advancing the Frontiers of Computer Vision</p>
+    <h1>The 1st Workshop on Humanoid Agents</h1>
+    <h2>In conjunction with CVPR 2025</h2>
+    <p><i class="fas fa-clock"></i> Mon Jun Xth, 2025 (Full Day)&emsp;<i class="fas fa-map-marker-alt"></i> Room: TBD, Music City Center, Nashville, USA</p>
   </header>
 
   <div class="container">
-    <!-- Schedule Section -->
-    <section id="schedule">
-      <h2>Schedule</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="time">09:00 AM</div>
-          <div class="desc">Opening Remarks</div>
+
+    <section id="speakers">
+      <h2>About</h2>
+
+      <p>
+        Building AI agents that behave just like human beings—<i>i.e.</i>, Humanoid Agents—has long been a central goal in AI research. Recent advancements have brought us closer to this goal, whether through humanoid avatars in virtual worlds or humanoid robots in the real world. 
+      </p>
+      
+      <!-- 在这两段话之间添加图片和说明 -->
+
+      <div class="image-container">
+        <div class="image-caption">
+          <video width="320" height="240" autoplay loop muted>
+            <source src="files/habitat3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="caption">Humanoid avatar in the virtual world <a href="https://aihabitat.org/habitat3/" target="_blank">[1]</a></p>
         </div>
-        <div class="timeline-item">
-          <div class="time">10:00 AM</div>
-          <div class="desc">Keynote Speech by Dr. Jane Doe</div>
+        <div class="image-caption">
+          <video width="320" height="240" autoplay loop muted>
+            <source src="files/berkeley.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="caption">Humanoid robot in the real world <a href="https://learning-humanoid-locomotion.github.io/" target="_blank">[2]</a></p>
         </div>
-        <div class="timeline-item">
-          <div class="time">11:30 AM</div>
-          <div class="desc">Paper Session I</div>
+      </div>
+
+      <p>
+        Developing such agents is a multi-disciplinary challenge, involving contributions from various fields:
+          <ul>
+            <li><strong>Computer Vision:</strong> 3D human modeling and motion generation</li>
+            <li><strong>Computer Graphics:</strong> character animation and physics-based simulation</li>
+            <li><strong>Robotics:</strong> locomotion control, policy learning, and navigation</li>
+            <li><strong>Cognitive Science:</strong> social cognition and mind reasoning</li>
+          </ul>
+        </p>
+        <p>
+        There have been many exciting advancements within these fields, and we believe now is the perfect time to create a comprehensive platform for researchers across communities to engage in meaningful dialogue. This workshop aims to facilitate the exchange of ideas, explore interdisciplinary intersections, and identify key challenges that can inspire new insights. Additionally, it will serve as an opportunity to discuss ethical concerns and societal impacts, and strategies to address them through collective effort.
+      </p>
+    </section>
+
+    <section id="invited-speakers">
+      <h2>Invited Speakers</h2>
+      <div class="grid speaker-grid">
+        <div class="card" style="padding-top: 30px;">
+          <img src="https://virtualhumans.mpi-inf.mpg.de/img/GPM_new_crop.png" alt="Speaker">
+          <h3><a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html" target="_blank" class="speaker-link">Gerard Pons-Moll</a></h3>
+          <p>University of Tübingen</p>
         </div>
-        <div class="timeline-item">
-          <div class="time">02:00 PM</div>
-          <div class="desc">Panel Discussion</div>
+
+        <div class="card" style="padding-top: 30px;">
+          <img src="files/xiaolong.jpg" alt="Speaker">
+          <h3><a href="https://xiaolonw.github.io/" target="_blank" class="speaker-link">Xiaolong Wang</a></h3>
+          <p>UC San Diego</p>
         </div>
-        <div class="timeline-item">
-          <div class="time">04:00 PM</div>
-          <div class="desc">Closing Remarks</div>
+
+        <div class="card" style="padding-top: 30px;">
+          <img src="files/angelica-lim.jpg" alt="Speaker">
+          <h3><a href="https://angelicalim.com/" target="_blank" class="speaker-link">Angelica Lim</a></h3>
+          <p>Simon Fraser University</p>
         </div>
+
+        <div class="card" style="padding-top: 30px;">
+          <img src="https://www.xavierpuigf.com/media/xavi.jpg" alt="Speaker">
+          <h3><a href="https://www.xavierpuigf.com/" target="_blank" class="speaker-link">Xavier Puig</a></h3>
+          <p>FAIR</p>
+        </div>
+      
+      <!-- </div>
+
+      <div class="section-spacing"></div>
+
+      <div class="grid speaker-grid"> -->
+
+        <div class="card" style="padding-top: 30px;">
+          <img src="files/sebastianxstarke.jpg" alt="Speaker">
+          <h3><a href="https://www.sebastianxstarke.com/" target="_blank" class="speaker-link">Sebastian Starke</a></h3>
+          <p>Meta Reality Labs</p>
+        </div>
+        <div class="card" style="padding-top: 30px;">
+          <img src="https://www.gshi.me/Guanya_Commencement.jpg" alt="Speaker">
+          <h3><a href="https://www.gshi.me/" target="_blank" class="speaker-link">Guanya Shi</a></h3>
+          <p>Carnegie Mellon University</p>
+        </div>
+        <div class="card" style="padding-top: 30px;">
+          <img src="https://www.tshu.io/portrait_2018.jpg" alt="Speaker">
+          <h3><a href="https://www.tshu.io/" target="_blank" class="speaker-link">Tianmin Shu</a></h3>
+          <p>Johns Hopkins University</p>
+        </div>
+        
       </div>
     </section>
 
     <!-- Call for Papers Section -->
     <section id="call-for-papers" class="call-for-papers">
       <h2>Call for Papers</h2>
-      <p>We invite researchers and practitioners to submit their original work on cutting-edge topics in computer vision and pattern recognition.</p>
-      <p>Submission Deadline: <strong>April 15, 2025</strong></p>
+      <p>
+        We invite the community to submit original work on frontier topics in humanoid agents. Further details will be announced soon.</p>
+      <p>Submission Deadline: <strong>TBD</strong></p>
       <a href="#submit">Submit Your Paper</a>
     </section>
 
-    <!-- Speakers Section -->
-    <section id="speakers">
-      <h2>Speakers</h2>
-      <div class="grid">
-        <div class="card">
-          <img src="https://via.placeholder.com/100" alt="Speaker">
-          <h3>Dr. Jane Doe</h3>
-          <p>Keynote Speaker</p>
+      <!-- Schedule Section -->
+      <section id="schedule">
+        <h2>Schedule (TBD)</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">09:00 AM</div>
+            <div class="desc">Opening Remarks</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">10:00 AM</div>
+            <div class="desc">Keynote Speech by Dr. Jane Doe</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">11:30 AM</div>
+            <div class="desc">Paper Session I</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">02:00 PM</div>
+            <div class="desc">Panel Discussion</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">04:00 PM</div>
+            <div class="desc">Closing Remarks</div>
+          </div>
         </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/100" alt="Speaker">
-          <h3>Dr. John Smith</h3>
-          <p>Panelist</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/100" alt="Speaker">
-          <h3>Dr. Alice Johnson</h3>
-          <p>Paper Presenter</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
+      
     <!-- Organizers Section -->
     <section id="organizers">
       <h2>Organizers</h2>
-      <div class="grid">
-        <div class="card">
-          <img src="https://via.placeholder.com/100" alt="Organizer">
-          <h3>Prof. Emily White</h3>
-          <p>Workshop Chair</p>
+      <div class="grid organizer-grid">
+        <div class="card organizer-card" style="padding-top: 30px;">
+          <img src="https://wentao.live/files/avatar_2025.jpg" alt="Speaker">
+          <h3><a href="https://walter0807.github.io/" target="_blank" class="speaker-link">Wentao Zhu</a></h3>
+          <p>Peking University</p>
         </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/100" alt="Organizer">
-          <h3>Dr. Mark Brown</h3>
-          <p>Program Committee</p>
+        <div class="card organizer-card" style="padding-top: 30px;">
+          <img src="files/fangchen.jpg" alt="Speaker">
+          <h3><a href="https://fangchenliu.github.io/" target="_blank" class="speaker-link">Fangchen Liu</a></h3>
+          <p>UC Berkeley</p>
         </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/100" alt="Organizer">
-          <h3>Dr. Sarah Green</h3>
-          <p>Local Organizer</p>
+        <div class="card organizer-card" style="padding-top: 30px;">
+          <img src="files/bike.jpg" alt="Speaker">
+          <h3><a href="https://bikezhang106.github.io/" target="_blank" class="speaker-link">Bike Zhang</a></h3>
+          <p>UC Berkeley</p>
+        </div>
+        <div class="card organizer-card" style="padding-top: 30px;">
+          <img src="https://hughw19.github.io/assets/photo1.jpg" alt="Speaker">
+          <h3><a href="https://hughw19.github.io/" target="_blank" class="speaker-link">He Wang</a></h3>
+          <p>Peking University & Galbot</p>
+        </div>
+        <div class="card organizer-card" style="padding-top: 30px;">
+          <img src="https://ericyi.github.io/Li_Yi_files/ericyi.jpg" alt="Speaker">
+          <h3><a href="https://ericyi.github.io/" target="_blank" class="speaker-link">Li Yi</a></h3>
+          <p>Tsinghua University</p>
+        </div>
+        <div class="card organizer-card" style="padding-top: 30px;">
+          <img src="files/Koushil.jpg" alt="Speaker">
+          <h3><a href="https://hybrid-robotics.berkeley.edu/koushil/" target="_blank" class="speaker-link">Koushil Sreenath</a></h3>
+          <p>UC Berkeley</p>
+        </div>
+        <div class="card organizer-card" style="padding-top: 30px;">
+          <img src="files/yizhou.jpg" alt="Speaker">
+          <h3><a href="https://cfcs.pku.edu.cn/english/people/faculty/yizhouwang/index.htm" target="_blank" class="speaker-link">Yizhou Wang</a></h3>
+          <p>Peking University</p>
+        </div>
+        <div class="card organizer-card" style="padding-top: 30px;">
+          <img src="files/pieter.jpg" alt="Speaker">
+          <h3><a href="https://people.eecs.berkeley.edu/~pabbeel/" target="_blank" class="speaker-link">Pieter Abbeel</a></h3>
+          <p>UC Berkeley</p>
+        </div>
+
+        <div class="card organizer-card" style="padding-top: 30px;">
+          <img src="files/leonidas-guibas_profilephoto.jpg" alt="Speaker">
+          <h3><a href="https://geometry.stanford.edu/?member=guibas" target="_blank" class="speaker-link">Leonidas Guibas</a></h3>
+          <p>Stanford University</p>
         </div>
       </div>
     </section>
-  </div>
 
+    <!-- 在现有的段落后添加图片和说明 -->
+<!-- 
   <footer>
     <p>&copy; 2025 CVPR Workshop. All Rights Reserved.</p>
-  </footer>
+  </footer> -->
+</div>
+
+<div class="section-spacing">
+  <!-- 这里是需要控制间距的内容 -->
+</div>
 </body>
 </html>
