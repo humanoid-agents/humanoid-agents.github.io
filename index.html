@@ -102,6 +102,13 @@
       margin-bottom: 1.5rem;
     }
 
+    h3 {
+      font-size: 1.5rem; /* 修改h3的大小，介于h2的2rem和正文的1.1rem之间 */
+      color: #333;
+      margin-bottom: 1rem;
+      margin-top: 1.5rem; /* 添加上边距，使其与上文有更好的间隔 */
+    }
+
     /* Schedule Timeline */
     .timeline {
       display: flex;
@@ -129,7 +136,7 @@
 
     /* Call for Papers */
     .call-for-papers p {
-      font-size: 1rem;
+      font-size: 19px;
       line-height: 1.6;
     }
 
@@ -206,7 +213,20 @@
       background: #f1f1f1;
     }
 
-    p {
+    p, ul, li, .desc, .timeline-item .desc, .call-for-papers p, .call-for-papers ul, .call-for-papers li {
+      font-size: 19px !important;
+    }
+
+    /* 保持卡片中机构名称的原有样式 */
+    .card p {
+      font-size: 0.9rem !important;  /* 保持机构名称较小的字体 */
+      color: #666;
+    }
+
+    /* 确保 call-for-papers 部分的文字也保持一致 */
+    .call-for-papers p, 
+    .call-for-papers ul,
+    .call-for-papers li {
       font-size: 19px;
     }
 
@@ -330,6 +350,94 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* 添加固定侧边导航的样式 */
+    .side-nav {
+      position: fixed;
+      right: 20px;  /* 改为right而不是left */
+      bottom: 20px;
+      transform: none;
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .side-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .side-nav li {
+      margin: 25px 0; /* 增加上下间距 */
+    }
+
+    .side-nav a {
+      color: #666;
+      text-decoration: none;
+      font-size: 18px; 
+      transition: color 0.2s, transform 0.2s;
+      display: block;
+      padding: 5px 10px;
+    }
+
+    .side-nav a:hover {
+      color: #2b4793;
+      transform: translateX(5px);
+    }
+
+    .side-nav a.active {
+      color: #2b4793;
+      font-weight: bold;
+    }
+
+    /* 在移动端隐藏侧边导航 */
+    @media (max-width: 1200px) {
+      .side-nav {
+        display: none;
+      }
+    }
+
+    .expand-btn {
+      background: none;
+      border: none;
+      color: #333; /* 与h3相同的颜色 */
+      cursor: pointer;
+      font-size: 1.5rem; /* 与h3相同的字体大小 */
+      font-weight: 600; /* 与h3相同的字重 */
+      font-family: 'Lato', sans-serif;
+      padding: 0; /* 移除内边距 */
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem; /* 与h3相同的下边距 */
+      margin-top: 1.5rem; /* 与h3相同的上边距 */
+    }
+
+    .expand-btn::after {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid #333;
+      border-bottom: 2px solid #333;
+      margin-left: 8px;
+      transform: rotate(45deg);
+      transition: transform 0.4s ease;
+    }
+
+    .expand-btn.active::after {
+      transform: rotate(-135deg);
+    }
+
+    .expandable-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .expandable-content.show {
+      max-height: 1000px;
+      transition: max-height 0.4s ease;
+    }
   </style>
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N29WWWD4CR"></script>
@@ -341,6 +449,15 @@
   gtag('config', 'G-N29WWWD4CR');
 </script>
 <body>
+  <nav class="side-nav">
+    <ul>
+      <li><a href="#speakers">About</a></li>
+      <li><a href="#call-for-papers">Call for Papers</a></li>
+      <li><a href="#invited-speakers">Invited Speakers</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#organizers">Organizers</a></li>
+    </ul>
+  </nav>
   <header>
     <h1>The 1st Workshop on Humanoid Agents</h1>
     <h2>In conjunction with CVPR 2025</h2>
@@ -389,6 +506,49 @@
         There have been many exciting advancements within these fields, and we believe now is the perfect time to create a comprehensive platform for researchers across communities to engage in meaningful dialogue. This workshop aims to facilitate the exchange of ideas, explore interdisciplinary intersections, and identify key challenges that can inspire new insights. Additionally, it will serve as an opportunity to discuss ethical concerns and societal impacts, and strategies to address them through collective effort.
       </p>
     </section>
+
+        <!-- Call for Papers Section -->
+        <section id="call-for-papers" class="call-for-papers">
+          <h2>Call for Papers</h2>
+          <p>
+            We welcome submissions on frontier topics in humanoid agents, including but not limited to the aforementioned areas. 
+            
+            Given the interdisciplinary nature of this workshop, we encourage submissions not only from the computer vision community but also from the fields of computer graphics, robotics, cognitive science, etc., as well as from industry practitioners working on related challenges.
+          </p>
+          
+          <button class="expand-btn">Submission Guidelines</button>
+
+          <div class="expandable-content">
+
+            <p>Submissions must be anonymized and limited to a maximum of 8 pages for the main content, with no restrictions on the length of references or appendices. Authors are encouraged to use the CVPR template.
+            </p>
+            <p>We also welcome relevant submissions recently published at other venues (e.g. NeurIPS / ICLR / SIGGRAPH / ICRA), but ask authors to indicate this upon submission. For such submissions, there are no template or page limit requirements. All accepted papers will be presented as posters, with select papers featured as spotlight talks.
+            </p>
+            
+            <p>Submissions may explore, but are not limited to, the following topics:
+            <ul>
+              <li>How can real-world human data (e.g., motion capture, internet videos) be utilized to advance humanoid agent behaviors?</li>
+              <li>Can virtual agents serve as simulations to aid in the development of real-world humanoid robots? What are the current limitations of existing simulation environments? Can improvements in animation quality benefit robot policy learning?</li>
+              <li>What are the advantages and challenges of humanoid robots compared to other types of robotic systems (e.g., wheeled, quadruped) ?</li>
+              <li>How can humanoid agents not only exhibit human-like movement but also generate human-like behaviors?</li>
+              <li>How can insights from human behavior research (e.g., psychology, cognitive science, neuroscience) inform the development of humanoid agents?</li>
+              <li>How will humans interact with humanoid agents? What measures can be taken to promote safety, interpretability, and responsible usage in these interactions?</li>
+            </ul>
+          </p>
+          </div>
+    
+          <h3>Important Dates</h3>
+          <p>
+            <ul>
+              <li><strong>Submission Deadline:</strong> 2025/04/29</li>
+              <li><strong>Notification:</strong> 2025/05/17</li>
+              <li><strong>Workshop Date:</strong> 2025/06/11</li>
+            </ul>
+          </p>
+          <!-- <p>Submission Deadline: <strong>TBD</strong></p> -->
+          <a href="https://openreview.net/group?id=thecvf.com/CVPR/2025/Workshop/Humanoid_Agents" target="_blank">Submit Your Paper</a>
+        </section>
+    
 
     <section id="invited-speakers">
       <h2>Invited Speakers</h2>
@@ -442,14 +602,6 @@
       </div>
     </section>
 
-    <!-- Call for Papers Section -->
-    <section id="call-for-papers" class="call-for-papers">
-      <h2>Call for Papers</h2>
-      <p>
-        We invite the community to submit original work on frontier topics in humanoid agents. Further details will be announced soon.</p>
-      <p>Submission Deadline: <strong>TBD</strong></p>
-      <a href="#submit">Submit Your Paper</a>
-    </section>
 
       <!-- Schedule Section -->
       <section id="schedule">
@@ -542,5 +694,55 @@
 <div class="section-spacing">
   <!-- 这里是需要控制间距的内容 -->
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.side-nav a');
+
+  // 添加点击事件监听器
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').slice(1);
+      const targetSection = document.getElementById(targetId);
+      
+      targetSection.scrollIntoView({
+        behavior: 'smooth',  // 添加平滑滚动效果
+        block: 'start'
+      });
+    });
+  });
+
+  // 保持原有的滚动监听功能
+  window.addEventListener('scroll', () => {
+    let current = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= sectionTop - 150) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').slice(1) === current) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  const expandBtn = document.querySelector('.expand-btn');
+  const expandableContent = document.querySelector('.expandable-content');
+  
+  expandBtn.addEventListener('click', function() {
+    expandableContent.classList.toggle('show');
+    expandBtn.classList.toggle('active');
+    expandBtn.textContent = expandableContent.classList.contains('show') ? 'Submission Guidelines' : 'Submission Guidelines';
+  });
+});
+</script>
 </body>
 </html>
